@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Editor • Handmade Pillow Shop</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="stylesheet" href="./assets/styles.css" />
+  <link rel="stylesheet" href="./assets/admin.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="topbar">
+      <div class="brand">
+        <strong>Product Editor</strong>
+        <span>Edit products without coding</span>
+      </div>
+
+      <div class="spacer"></div>
+
+      <a class="btn" href="./index.html">Back to shop</a>
+      <button class="btn btnPrimary" id="downloadBtn" type="button">Download products.js</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card hero" style="padding:16px;">
+      <h1 style="margin:0 0 8px;">Update your pillows</h1>
+      <p style="margin:0; color:var(--muted); line-height:1.55;">
+        Use this page to change product <b>names</b>, <b>descriptions</b>, and <b>pictures</b> with simple forms.
+        Your edits auto-save as a draft in this browser. When you’re ready, click
+        <b>Download products.js</b>, then upload it to GitHub to replace <code>assets/products.js</code>.
+      </p>
+      <div class="adminActions">
+        <button class="btn" id="addBtn" type="button">Add new product</button>
+        <button class="btn" id="duplicateBtn" type="button">Duplicate selected</button>
+        <button class="btn" id="deleteBtn" type="button">Delete selected</button>
+        <span class="pill" id="draftPill" title="Draft is stored in your browser">Draft: saved</span>
+        <div class="spacer"></div>
+        <button class="btn" id="resetBtn" type="button" title="Reset editor to what is currently in assets/products.js">Reset to live</button>
+        <button class="btn" id="exportJsonBtn" type="button">Download products.json</button>
+      </div>
+      <div class="hint" style="margin-top:10px;">
+        Image tip: choose an image → click <b>Download renamed image</b> → upload it to <code>assets/photos/</code> on GitHub.
+      </div>
+    </section>
+
+    <section class="adminGrid">
+      <div class="card adminPanel">
+        <div class="adminPanelHeader">
+          <b>Products</b>
+          <span class="adminSmall" id="countLabel"></span>
+        </div>
+        <div class="adminList" id="productList"></div>
+      </div>
+
+      <div class="card adminPanel">
+        <div class="adminPanelHeader">
+          <b>Edit</b>
+          <span class="adminSmall" id="selectedLabel"></span>
+        </div>
+        <div class="adminEditor" id="editor"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="hint">
+        After uploading, your store uses the updated data immediately. Your GitHub Pages site will be:
+        <code>https://YOUR-USERNAME.github.io/YOUR-REPO/</code> and this editor will be:
+        <code>/admin.html</code>.
+      </div>
+    </footer>
+  </main>
+
+  <!-- Load current products -->
+  <script src="./assets/products.js"></script>
+  <script src="./assets/admin.js"></script>
+</body>
+</html>

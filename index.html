@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Handmade Pillow Shop</title>
+  <meta name="description" content="Handmade pillows — custom fabrics, cozy inserts, and small-batch craftsmanship." />
+
+  <!-- Social preview (optional) -->
+  <meta property="og:title" content="Handmade Pillow Shop" />
+  <meta property="og:description" content="Handmade pillows — custom fabrics, cozy inserts, and small-batch craftsmanship." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="topbar">
+      <div class="brand">
+        <strong id="storeName">Handmade Pillow Shop</strong>
+        <span id="tagline">Small-batch pillows made by hand</span>
+      </div>
+
+      <div class="spacer"></div>
+
+      <button class="btn" id="contactBtn" type="button" aria-label="Contact the shop">
+        Contact <span class="pill" id="emailPill">email</span>
+      </button>
+
+      <button class="btn btnPrimary" id="openCartBtn" type="button" aria-label="Open cart">
+        Cart <span class="pill" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero card">
+      <div class="heroGrid">
+        <div class="heroMain">
+          <h1 id="heroTitle">Handmade pillows, made to last.</h1>
+          <p id="heroDesc">
+            Choose your size + fabric color, add to cart, and checkout in a minute.
+            Perfect for made-to-order and small inventory drops.
+          </p>
+          <div class="badges">
+            <div class="badge"><span class="dot"></span> Handmade stitching</div>
+            <div class="badge"><span class="dot"></span> Insert options</div>
+            <div class="badge"><span class="dot"></span> Gift-ready notes</div>
+          </div>
+        </div>
+
+        <div class="heroSide">
+          <div class="stat">
+            <b>How ordering works</b>
+            <span>
+              Add items to cart → Checkout → your email app opens with your order summary.
+              You reply with payment + shipping confirmation.
+            </span>
+          </div>
+          <div class="stat">
+            <b>Want instant payments?</b>
+            <span>
+              Add per-item <span class="mono">buyUrl</span> links (Stripe Payment Links, PayPal, Etsy listing, etc.).
+              “Buy now” will appear automatically.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input class="input" id="search" placeholder="Search pillows (e.g., lumbar, linen, terracotta)…" />
+        <select id="category" aria-label="Filter by category"></select>
+        <select id="sort" aria-label="Sort products">
+          <option value="featured">Sort: Featured</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="name-asc">Name: A → Z</option>
+        </select>
+      </div>
+    </section>
+
+    <section>
+      <div class="grid" id="grid" aria-label="Product grid"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footerRow">
+        <div>© <span id="year"></span> <span id="storeNameFoot"></span></div>
+        <div class="footerSep">•</div>
+        <div>Questions? <span id="emailFoot"></span></div>
+      </div>
+      <div class="hint">
+        Edit shop settings in <code>assets/app.js</code> and products in <code>assets/products.js</code>.
+        Add photos in <code>assets/photos/</code> and set each product’s <code>imageUrl</code>.
+      </div>
+    </footer>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+    <div class="drawerHeader">
+      <h2>Your Cart</h2>
+      <div class="spacer"></div>
+      <button class="btn" id="closeCartBtn" type="button">Close</button>
+    </div>
+
+    <div class="drawerBody">
+      <div id="cartItems"></div>
+
+      <div class="line"></div>
+
+      <div class="totals"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+      <div class="totals"><span>Shipping</span><strong id="shipping">$0.00</strong></div>
+      <div class="totals"><span>Tax</span><strong id="tax">$0.00</strong></div>
+      <div class="totals totalsBig"><span>Total</span><strong id="total">$0.00</strong></div>
+
+      <div class="line"></div>
+
+      <div class="checkout">
+        <input class="input" id="custName" placeholder="Your name" autocomplete="name" />
+        <input class="input" id="custEmail" placeholder="Your email" autocomplete="email" />
+        <input class="input" id="custAddress" placeholder="Shipping address (optional)" autocomplete="shipping street-address" />
+        <textarea class="input" id="custNote" rows="3" placeholder="Order note (gift message, special request, etc.)"></textarea>
+
+        <button class="btn btnPrimary" id="checkoutBtn" type="button">Checkout</button>
+        <button class="btn" id="copyOrderBtn" type="button">Copy order summary</button>
+        <div class="hint" id="checkoutHint"></div>
+      </div>
+    </div>
+
+    <div class="drawerFooter">
+      <button class="btn" id="clearBtn" type="button">Clear cart</button>
+      <div class="hint">Checkout opens an email with your order details (simple + no backend).</div>
+    </div>
+  </aside>
+
+  <script src="./assets/products.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
